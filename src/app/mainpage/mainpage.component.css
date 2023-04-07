@@ -1,0 +1,57 @@
+.card-container{
+
+  background-color: #0099ff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  place-items: center;
+  height: 92%;
+  width: 100%;
+}
+.container{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.container figure{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.nested{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+mat-card{
+  background-color: rgba(0, 0, 10, 0.9);
+}
+.test{
+  justify-self: center;
+  align-self: center;
+  min-width: 10px;
+  width: 100%;
+  max-width: 100px;
+  height: 100px;
+}
+.container figure img {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+.container figure:hover img {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
+#linkedinImg{
+  margin-top: 15px;
+}
+#gitImg{
+  border-radius: 10%;
+  margin-top: 15px;
+}
+#xingImg{
+  margin-top: 15px;
+}

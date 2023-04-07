@@ -14,6 +14,9 @@ import {PostCreateComponent} from "./posts/post-create/post-create.component";
 import {FormsModule} from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {PostService} from "./posts/post.service";
+import {AppRoutingModule} from "./app-routing.module";
+import {MainpageComponent} from "./mainpage/mainpage.component";
+
 
 
 @NgModule({
@@ -21,10 +24,13 @@ import {PostService} from "./posts/post.service";
     AppComponent,
     PostCreateComponent,
     HeaderComponent,
-    PostListComponent
+    PostListComponent,
+    MainpageComponent
+
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
     MatInputModule,

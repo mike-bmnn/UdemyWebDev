@@ -34,6 +34,12 @@ export class PostService {
       });
   }
 
+  getPost(id: number){
+    return {
+      ...this.posts.find(p => p.id == id)
+    }
+  }
+
   addPost(title: string, content: string) {
     const post: Post = {id: null, title: title, content: content}
     this.httpClient.post<{ message: string, id: number }>('http://localhost:3000/api/posts', post).subscribe((responseData) => {
