@@ -60,6 +60,25 @@ app.post("/api/posts", async (req, res, next) => {
   }
 });
 
+app.put('/api/posts/:id', async (req, res, next) => {
+  id = req.params.id;
+  title = req.body.title;
+  content = req.body.content;
+  try {
+    const result = await new Promise((resolve, reject) => {
+      con.query(`UPDATE posts SET title = '${title}', content = '${content}' WHERE postid = '${id}'`, (err, result, fields) => {
+        if (err) return reject(err);
+        return resolve(result);
+      });
+    });
+    res.status(200).json({
+      message: 'Post updatet successfully',
+    });
+  } catch (err) {
+    console.log(err)
+  }
+})
+
 app.get('/api/posts' ,async (req, res, next) => {
   try {
     const result = await new Promise((resolve, reject) => {

@@ -3,6 +3,7 @@ import {Injectable} from "@angular/core";
 import {Subject} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import { map } from 'rxjs/operators';
+import {response} from "express";
 
 @Injectable({providedIn: 'root'})
 export class PostService {
@@ -48,6 +49,19 @@ export class PostService {
       this.posts.push(post);
       this.postsUpdated.next([...this.posts])
     })
+  }
+
+  updatePost(id: number, title: string, content: string){
+    const post: Post = {id: id, title: title, content: content};
+    this.httpClient.put('http://localhost:3000/api/posts/' + id, post)
+      .subscribe((response) => {
+        console.log(response);
+        const updatedPosts = [...this.posts];
+        const oldPostIndex = updatedPosts.findIndex(p => p.id == post.id);
+        updatedPosts[oldPostIndex] = post;
+        this.posts = updatedPosts;
+        this.postsUpdated.next([...this.posts])
+      })
   }
 
   deletePost(postId: number) {
